@@ -6,28 +6,11 @@ import { PortableText } from '@portabletext/react'
 
 import { FaGithub } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa";
-import { client } from '../../../sanity/lib/client';
-import IAbout from "../../types/About";
 
-async function getAbout() {
-    const query = `*[_type == "about"][0] {
-        name,
-        role,
-        'photo': photo.asset->url,
-        description,
-        urllinkedin,
-        urlgithub,
-    }`;
-
-    const data = await client.fetch(query);
-
-    return data;
-}
-
-export const revalidate = 2;
+import About from "../../services/About";
 
 async function AboutPage() {
-    const data: IAbout = await getAbout();
+    const data = await About.findOne();
 
     return (
         <>

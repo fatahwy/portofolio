@@ -1,16 +1,22 @@
+import React, { ReactNode } from 'react';
 import type { Metadata } from 'next'
+// import NextProgress from 'next-progress';
+
 import './globals.css'
-import WraperLayout from '@/components/Wraper'
+import WraperLayout from '../components/Wraper'
+import Global from '../services/Global'
+
+const data = await Global.findOne();
 
 export const metadata: Metadata = {
-  title: 'Fatah Projects',
-  description: 'All my project',
+    title: data.title,
+    description: data.description,
 }
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
-  return <WraperLayout>{children}</WraperLayout>
+export default function RootLayout({ children }: { children: ReactNode }) {
+    return (
+        <WraperLayout>
+            {children}
+        </WraperLayout>
+    )
 }

@@ -6,35 +6,13 @@ import BtnAction from '@/components/ui/BtnAction';
 import { CiLocationArrow1 } from 'react-icons/ci';
 import { FaGithub } from 'react-icons/fa';
 
-import { client } from '../../../../sanity/lib/client';
-import IProject from "../../../types/Project";
+import Project from "../../../services/Project";
 import SliderPreview from '../../../components/SliderPreview'
 
-async function getProject(id: string) {
-    const query = `*[_type == "project" && _id == '${id}'][0] {
-        _id,
-        title,
-        overview,
-        'thumbnail': thumbnail.asset->url,
-        previews[] {
-            'url': image.asset->url,
-            caption
-        },
-        description,
-        urlwebsite,
-        urlrepository,
-    }`
-
-    const data = await client.fetch(query);
-
-    return data;
-}
-
 async function DetailProject({ params }: any) {
-    const data: IProject = await getProject(params.id);
+    const data = await Project.findOne(params.id);
 
-    const previews: any[] = data.previews.map((d: any, i: number) => {
-
+    const previews: any[] = (data.previews ?? []).map((d: any, i: number) => {
         return (
             <div key={i} className="relative h-[500px]">
                 <Image
@@ -57,9 +35,12 @@ async function DetailProject({ params }: any) {
                 <BtnAction route={data.urlwebsite} label='Demo' icon={<CiLocationArrow1 />} />
                 <BtnAction route={data.urlrepository} label='Repository' icon={<FaGithub />} />
             </div>
-            <div className='h-[500px] w-full'>
-                <SliderPreview datas={previews} />
-            </div>
+            {
+                previews.length > 0 &&
+                <div className='h-[500px] w-full'>
+                    <SliderPreview datas={previews} />
+                </div>
+            }
             <div className='w-full mt-5'>
                 <PortableText value={data.description} />
             </div>
