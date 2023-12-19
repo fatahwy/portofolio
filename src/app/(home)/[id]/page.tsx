@@ -36,10 +36,9 @@ async function DetailProject({ params }: any) {
     const previews: any[] = data.previews.map((d: any, i: number) => {
 
         return (
-            <div className="relative h-[500px]">
+            <div key={i} className="relative h-[500px]">
                 <Image
                     className='object-cover object-center'
-                    key={i}
                     alt="Image"
                     src={d.url}
                 />
