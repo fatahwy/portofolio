@@ -13,9 +13,11 @@ export const metadata: Metadata = {
     description: data.description,
 }
 
+export const revalidate = 500;
+
 export default function RootLayout({ children }: { children: ReactNode }) {
     return (
-        <WraperLayout>
+        <WraperLayout data={data}>
             {children}
         </WraperLayout>
     )

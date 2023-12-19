@@ -1,5 +1,6 @@
 import React from 'react'
 import { Image } from '@nextui-org/react';
+import NextImage from 'next/image'
 import { PortableText } from '@portabletext/react';
 
 import BtnAction from '@/components/ui/BtnAction';
@@ -16,9 +17,12 @@ async function DetailProject({ params }: any) {
         return (
             <div key={i} className="relative h-[500px]">
                 <Image
+                    as={NextImage}
                     className='object-cover object-center'
                     alt="Image"
                     src={d.url}
+                    width={1000}
+                    height={500}
                 />
                 <div className="absolute inset-0 z-10 flex items-end justify-center bottom-10 px-5">
                     <p className="">{d.caption}</p>

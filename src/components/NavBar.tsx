@@ -1,11 +1,11 @@
 "use client";
 
 import React, { useState } from "react";
-import { Navbar, NavbarContent, NavbarItem, NavbarMenu, NavbarMenuItem, NavbarMenuToggle } from "@nextui-org/react";
-import { ThemeSwitcher } from "../ThemeSwitcher";
+import { Navbar, NavbarBrand, NavbarContent, NavbarItem, NavbarMenu, NavbarMenuItem, NavbarMenuToggle } from "@nextui-org/react";
+import { ThemeSwitcher } from "./ThemeSwitcher";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
-import NavBarBrand from "./NavBarBrand";
+import { GlobalType } from "@/services/Global";
 
 type LinkItemProps = {
     route: string,
@@ -39,7 +39,7 @@ const menus = [
     },
 ]
 
-export default function NavBar() {
+export default function NavBar({ navbar }: GlobalType) {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     return (
@@ -49,7 +49,9 @@ export default function NavBar() {
                     aria-label={isMenuOpen ? "Close menu" : "Open menu"}
                     className="sm:hidden"
                 />
-                <NavBarBrand />
+                <NavbarBrand className="px-0">
+                    <Link href='/' className="text-lg font-medium">{navbar}</Link>
+                </NavbarBrand>
             </NavbarContent>
 
             <NavbarContent className="gap-4" justify="end">
