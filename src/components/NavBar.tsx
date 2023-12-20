@@ -5,7 +5,8 @@ import { Navbar, NavbarBrand, NavbarContent, NavbarItem, NavbarMenu, NavbarMenuI
 import { ThemeSwitcher } from "./ThemeSwitcher";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
-import { GlobalType } from "@/services/Global";
+import NextProgress from "next-progress";
+import { GlobalType } from "@/types/Global";
 
 type LinkItemProps = {
     route: string,
@@ -44,6 +45,7 @@ export default function NavBar({ navbar }: GlobalType) {
 
     return (
         <Navbar onMenuOpenChange={setIsMenuOpen}>
+            <NextProgress delay={300} />
             <NavbarContent>
                 <NavbarMenuToggle
                     aria-label={isMenuOpen ? "Close menu" : "Open menu"}

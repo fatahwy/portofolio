@@ -1,15 +1,5 @@
+import { ProjectType } from "@/types/Project";
 import { client } from "../../sanity/lib/client";
-
-export type ProjectType = {
-    _id: string,
-    title: string,
-    overview: string,
-    thumbnail: string,
-    previews: { url: string, caption: string }[],
-    description: any,
-    urlwebsite: string,
-    urlrepository: string,
-}
 
 async function findAll() {
     const query = `*[_type == "project"] | order(_createdAt desc) {

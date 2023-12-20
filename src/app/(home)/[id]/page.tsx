@@ -15,7 +15,7 @@ async function DetailProject({ params }: any) {
 
     const previews: any[] = (data.previews ?? []).map((d: any, i: number) => {
         return (
-            <div key={i} className="relative h-[500px]">
+            <div key={i} className="relative h-80 md:h-[500px]">
                 <Image
                     as={NextImage}
                     className='object-cover object-center'
@@ -24,8 +24,8 @@ async function DetailProject({ params }: any) {
                     width={1000}
                     height={500}
                 />
-                <div className="absolute inset-0 z-10 flex items-end justify-center bottom-10 px-5">
-                    <p className="">{d.caption}</p>
+                <div className="absolute inset-0 z-10 flex items-end justify-center bottom-5 px-5">
+                    <p className="max-h-20 md:max-h-40 overflow-y-auto rounded-md p-1 bg-black text-white dark:bg-white dark:text-black ">{d.caption}</p>
                 </div>
             </div>
         );
@@ -41,7 +41,7 @@ async function DetailProject({ params }: any) {
             </div>
             {
                 previews.length > 0 &&
-                <div className='h-[500px] w-full'>
+                <div className='h-80 md:h-[500px] w-full'>
                     <SliderPreview datas={previews} />
                 </div>
             }

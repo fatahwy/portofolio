@@ -8,7 +8,8 @@ import Link from 'next/link';
 import Title from '../../components/Title';
 import BtnAction from '../../components/ui/BtnAction'
 
-import Project, { ProjectType } from "../../services/Project";
+import Project from "../../services/Project";
+import { ProjectType } from '@/types/Project';
 
 export default async function HomePage() {
     const datas = await Project.findAll();
@@ -35,6 +36,7 @@ export default async function HomePage() {
                                                     height={500}
                                                     width={1000}
                                                     src={d.thumbnail}
+                                                    radius='md'
                                                 />
                                             </Link>
                                         </div>
