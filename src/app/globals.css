@@ -1,3 +1,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.prose ul,
+.prose ol {
+    list-style: auto;
+    padding: 10px;
+}
+
+.prose ul li,
+.prose ol li {
+    margin-left: 10px;
+    padding: 1px;
+}

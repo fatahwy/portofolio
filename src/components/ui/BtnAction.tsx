@@ -11,7 +11,7 @@ type BtnActionProps = {
 const BtnAction = ({ route = '', label, icon }: BtnActionProps) => {
     return (
         <Button title={label} color='default' size='sm' radius='full' variant='flat'>
-            <Link className='flex items-center gap-1' href={route}>{icon} {label}</Link>
+            <Link className='flex items-center gap-1' href={route} target="_blank">{icon} {label}</Link>
         </Button>
     )
 }

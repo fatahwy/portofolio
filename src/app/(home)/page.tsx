@@ -23,19 +23,19 @@ export default async function HomePage() {
                         return (
                             <Card
                                 key={i}
-                                className="bg-background dark:bg-default-100"
+                                className="bg-background dark:bg-default-100 w-full"
                             >
                                 <CardBody>
-                                    <div className="flex flex-col md:flex-row gap-6 md:gap-5 items-start">
+                                    <div className="flex flex-col md:flex-row gap-6 md:gap-5 items-start w-full">
                                         <div className="md:w-5/12 w-full">
                                             <Link href={`/${d._id}`}>
                                                 <Image
                                                     as={NextImage}
                                                     alt={d.title}
-                                                    className="object-cover scale-[1] hover:scale-[1.01]"
+                                                    className="object-cover scale-[1] hover:scale-[1.01] max-h-[200px]"
                                                     height={500}
                                                     width={1000}
-                                                    src={d.thumbnail}
+                                                    src={d.previews ? d.previews[0]?.url : ''}
                                                     radius='md'
                                                 />
                                             </Link>
@@ -52,7 +52,6 @@ export default async function HomePage() {
                                     </div>
                                 </CardBody>
                             </Card>
-
                         )
                     })
                 }

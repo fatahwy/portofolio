@@ -37,19 +37,14 @@ const projectType: SchemaTypeDefinition = {
     {
       name: 'overview',
       title: 'Overview',
-      type: 'string',
-      validation: (Rule) => Rule.required(),
-    },
-    {
-      'name': 'thumbnail',
-      'title': 'Thumbnail',
-      'type': 'image',
+      type: 'text',
       validation: (Rule) => Rule.required(),
     },
     {
       name: 'previews',
       title: 'Previews',
       type: 'array',
+      validation: (Rule) => Rule.required().min(1),
       of: [
         {
           type: 'object',

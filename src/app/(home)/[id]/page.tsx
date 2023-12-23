@@ -45,7 +45,7 @@ async function DetailProject({ params }: any) {
                     <SliderPreview datas={previews} />
                 </div>
             }
-            <div className='w-full mt-5'>
+            <div className='w-full mt-5 prose'>
                 <PortableText value={data.description} />
             </div>
         </div>

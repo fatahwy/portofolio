@@ -6,7 +6,6 @@ async function findAll() {
         _id,
         title,
         overview,
-        'thumbnail': thumbnail.asset->url,
         previews[] {
             'url': image.asset->url,
             caption
@@ -26,7 +25,6 @@ async function findOne(id: string) {
         _id,
         title,
         overview,
-        'thumbnail': thumbnail.asset->url,
         previews[] {
             'url': image.asset->url,
             caption

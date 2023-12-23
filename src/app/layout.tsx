@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react';
 import type { Metadata } from 'next'
-// import NextProgress from 'next-progress';
+import NextTopLoader from 'nextjs-toploader';
 
 import './globals.css'
 import WraperLayout from '../components/Wraper'
@@ -18,6 +18,7 @@ export const revalidate = 500;
 export default function RootLayout({ children }: { children: ReactNode }) {
     return (
         <WraperLayout data={data}>
+            <NextTopLoader />
             {children}
         </WraperLayout>
     )
