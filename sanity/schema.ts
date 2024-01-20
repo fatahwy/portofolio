@@ -13,7 +13,7 @@ const globalType: SchemaTypeDefinition = {
     {
       name: 'description',
       title: 'Description',
-      type: 'string'
+      type: 'text'
     },
     {
       name: 'navbar',
@@ -60,7 +60,7 @@ const projectType: SchemaTypeDefinition = {
             {
               name: 'caption',
               title: 'Caption',
-              type: 'string',
+              type: 'text',
             },
           ],
         },

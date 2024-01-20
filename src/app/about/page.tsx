@@ -21,10 +21,10 @@ async function AboutPage() {
                     <div className='text-2xl font-semibold text-center pt-4'>{data.name}</div>
                     <div className='text-xl text-center'>{data.role}</div>
                     <div className='w-full flex justify-center gap-4 pt-4'>
-                        <Link href={data.urlgithub}>
+                        <Link href={data.urlgithub} prefetch>
                             <FaGithub className="text-3xl" />
                         </Link>
-                        <Link href={data.urllinkedin}>
+                        <Link href={data.urllinkedin} prefetch>
                             <FaLinkedin className="text-3xl" />
                         </Link>
                     </div>

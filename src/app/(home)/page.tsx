@@ -28,7 +28,7 @@ export default async function HomePage() {
                                 <CardBody>
                                     <div className="flex flex-col md:flex-row gap-6 md:gap-5 items-start w-full">
                                         <div className="md:w-5/12 w-full">
-                                            <Link href={`/${d._id}`}>
+                                            <Link href={`/${d._id}`} prefetch>
                                                 <Image
                                                     as={NextImage}
                                                     alt={d.title}
@@ -42,7 +42,7 @@ export default async function HomePage() {
                                         </div>
 
                                         <div className="flex flex-col w-full md:w-7/12 gap-3">
-                                            <Link className="text-2xl font-medium mt-2 hover:underline" href={`/${d._id}`}>{d.title}</Link>
+                                            <Link className="text-2xl font-medium mt-2 hover:underline" href={`/${d._id}`} prefetch>{d.title}</Link>
                                             <p className="text-foreground/80">{d.overview}</p>
                                             <div className="flex gap-2">
                                                 <BtnAction route={d.urlwebsite} label='Demo' icon={<CiLocationArrow1 />} />
