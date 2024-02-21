@@ -34,8 +34,8 @@ const menus = [
         label: 'Home'
     },
     {
-        route: '/about',
-        label: 'About'
+        route: '/projects',
+        label: 'Project'
     },
 ]
 

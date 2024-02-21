@@ -151,6 +151,34 @@ const aboutType: SchemaTypeDefinition = {
   ]
 }
 
+const techStackType: SchemaTypeDefinition = {
+  name: 'techstack',
+  title: 'Tech Stack',
+  type: 'document',
+  fields: [
+    {
+      name: 'icon',
+      title: 'Icon',
+      type: 'image',
+      options: {
+        hotspot: true,
+      },
+      validation: (Rule) => Rule.required(),
+    },
+    {
+      name: 'name',
+      title: 'Name',
+      type: 'string',
+      validation: (Rule) => Rule.required(),
+    },
+    {
+      name: 'url',
+      title: 'Url',
+      type: 'string',
+    },
+  ]
+}
+
 export const schema: { types: SchemaTypeDefinition[] } = {
-  types: [globalType, projectType, aboutType],
+  types: [globalType, projectType, aboutType, techStackType],
 }

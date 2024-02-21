@@ -1,8 +1,14 @@
 import { ProjectType } from "@/types/Project";
 import { client } from "../../sanity/lib/client";
 
-async function findAll() {
-    const query = `*[_type == "project"] | order(_createdAt desc) {
+async function findAll(limit?: number) {
+    let paginate = '';
+
+    if (limit) {
+        paginate = `[0...${limit}]`;
+    }
+
+    const query = `*[_type == "project"] | order(_createdAt desc) ${paginate} {
         _id,
         title,
         overview,
@@ -39,9 +45,18 @@ async function findOne(id: string) {
     return data;
 }
 
+async function count() {
+    const query = `count(*[_type == "project"])`
+
+    const data: any = await client.fetch(query);
+
+    return data;
+}
+
 const Project = {
     findAll,
     findOne,
+    count,
 }
 
 export default Project;

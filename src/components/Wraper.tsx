@@ -17,7 +17,7 @@ export default function WraperLayout({
 }) {    
     return (
         <html lang="en">
-            <body className={`${inter.className} max-w-5xl mx-auto`}>
+            <body className={`${inter.className} max-w-5xl mx-auto pb-10`}>
                 <Providers>
                     <NavBar {...data} />
                     <div className='py-5 px-6'>
