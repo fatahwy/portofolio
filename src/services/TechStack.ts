@@ -8,7 +8,7 @@ async function findAll(limit?: number) {
         paginate = `[0...${limit}]`;
     }
 
-    const query = `*[_type == "techstack"] | order(_createdAt desc) ${paginate} {
+    const query = `*[_type == "techstack"] | order(order asc) ${paginate} {
         _id,
         name,
         'icon': icon.asset->url,

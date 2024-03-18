@@ -44,13 +44,13 @@ export default async function HomePage() {
             </div>
 
             <div className='font-medium my-5 text-3xl'>Tech Stack</div>
-            <div className='grid grid-cols-6 gap-5 mb-20'>
+            <div className='grid grid-cols-5 gap-5 mb-20'>
                 {
                     listTechStack.map((d: TechStackType, i: number) => {
                         return (
                             <Link target='_blank' href={d.url} key={i} className='flex items-center gap-x-3 p-1.5 rounded-2xl transition-all outline outline-1 outline-gray-300 hover:bg-gray-200'>
                                 <NextImage src={d.icon} alt={d.name} width={40} height={40} />
-                                <div className='text-lg font-medium dark:text-black'>{d.name}</div>
+                                <div className='text-lg font-medium dark:text-white break-words p-1'>{d.name}</div>
                             </Link>
                         )
                     })
